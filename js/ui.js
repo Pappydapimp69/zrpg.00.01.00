@@ -1,3 +1,4 @@
+// UI helper for printing to transcript
 const ui = {
   print(html) {
     const t = document.getElementById("transcript");
@@ -9,23 +10,25 @@ const ui = {
   }
 };
 
-// Submit
+// --- Event Listeners ---
+
+// Submit button + Enter key
 document.getElementById("submitBtn").addEventListener("click", () => {
   const input = document.getElementById("commandInput");
   const cmd = input.value;
   input.value = "";
-  parseCommand(cmd);
+  parseCommand(cmd); // run command
 });
 document.getElementById("commandInput").addEventListener("keydown", e => {
   if (e.key === "Enter") document.getElementById("submitBtn").click();
 });
 
-// Movement and quick buttons (these run immediately)
+// Quick movement buttons (N, S, E, W, Look)
 document.querySelectorAll("#quickBtns button").forEach(btn => {
   btn.addEventListener("click", () => parseCommand(btn.dataset.cmd));
 });
 
-// Static command buttons
+// Static command buttons (Look runs immediately; others pre-fill input)
 document.querySelectorAll("#staticBtns button").forEach(btn => {
   btn.addEventListener("click", () => {
     const cmd = btn.dataset.cmd;
@@ -33,13 +36,13 @@ document.querySelectorAll("#staticBtns button").forEach(btn => {
       parseCommand("look"); // auto-exec
     } else {
       const input = document.getElementById("commandInput");
-      input.value = cmd + " ";
+      input.value = cmd + " "; // e.g. "take "
       input.focus();
     }
   });
 });
 
-// Top action buttons (help, stats, inv, save, load)
+// Top action buttons (Help, Stats, Inv, Save, Load)
 document.querySelectorAll("#topActions button").forEach(btn => {
   btn.addEventListener("click", () => parseCommand(btn.dataset.cmd));
 });
