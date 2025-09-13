@@ -23,12 +23,12 @@ document.getElementById("commandInput").addEventListener("keydown", e => {
   if (e.key === "Enter") document.getElementById("submitBtn").click();
 });
 
-// Quick movement buttons (N, S, E, W, Look)
+// Movement buttons (N, S, E, W)
 document.querySelectorAll("#quickBtns button").forEach(btn => {
   btn.addEventListener("click", () => parseCommand(btn.dataset.cmd));
 });
 
-// Static command buttons (Look runs immediately; others pre-fill input)
+// Action buttons (Look runs immediately; others pre-fill)
 document.querySelectorAll("#staticBtns button").forEach(btn => {
   btn.addEventListener("click", () => {
     const cmd = btn.dataset.cmd;
@@ -36,7 +36,7 @@ document.querySelectorAll("#staticBtns button").forEach(btn => {
       parseCommand("look"); // auto-exec
     } else {
       const input = document.getElementById("commandInput");
-      input.value = cmd + " "; // e.g. "take "
+      input.value = cmd + " ";
       input.focus();
     }
   });
@@ -45,4 +45,12 @@ document.querySelectorAll("#staticBtns button").forEach(btn => {
 // Top action buttons (Help, Stats, Inv, Save, Load)
 document.querySelectorAll("#topActions button").forEach(btn => {
   btn.addEventListener("click", () => parseCommand(btn.dataset.cmd));
+});
+
+// Keyboard shortcuts for movement (arrows + WASD)
+document.addEventListener("keydown", e => {
+  if (["ArrowUp", "w", "W"].includes(e.key)) parseCommand("n");
+  if (["ArrowDown", "s", "S"].includes(e.key)) parseCommand("s");
+  if (["ArrowLeft", "a", "A"].includes(e.key)) parseCommand("w");
+  if (["ArrowRight", "d", "D"].includes(e.key)) parseCommand("e");
 });
