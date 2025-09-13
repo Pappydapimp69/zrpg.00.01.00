@@ -1,0 +1,120 @@
+:root {
+  --bg: #0f1115;
+  --panel: #0a0c10;
+  --text: #e8eaf1;
+  --muted: #9aa4b2;
+  --accent: #63e;
+  --line: #232733;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+#app {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+#topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+#topbar h1 { font-size: 18px; margin: 0; color: var(--text); }
+#topActions button {
+  margin-left: 6px;
+  padding: 6px 10px;
+  background: #1a1e27;
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+}
+#topActions button:hover { border-color: var(--accent); }
+
+#main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+#transcript {
+  min-height: 40vh;
+  max-height: 64vh;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 8px;
+  padding: 12px;
+}
+#transcript .line { margin: 6px 0; }
+#transcript .muted { color: var(--muted); }
+#transcript .delta { color: #7be389; }
+#transcript .roll { color: #76b2ff; }
+
+#controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+#quickBtns, #staticBtns {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+
+#quickBtns {
+  grid-template-columns: 3fr 6fr 3fr;
+  justify-items: center;
+}
+#quickBtns .row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+#quickBtns button, #staticBtns button, #submitBtn {
+  padding: 10px;
+  background: #1a1e27;
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+}
+#quickBtns button:hover, #staticBtns button:hover, #submitBtn:hover {
+  border-color: var(--accent);
+}
+
+#cli {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+#commandInput {
+  padding: 10px;
+  border: 1px solid var(--line);
+  background: #11141b;
+  color: var(--text);
+  border-radius: 8px;
+}
+
+@media (max-width: 640px) {
+  #transcript { min-height: 50vh; max-height: 60vh; }
+  #topActions button { padding: 6px 8px; }
+  #quickBtns button, #staticBtns button { padding: 14px; }
+  #submitBtn { padding: 12px 16px; }
+  #cli { position: sticky; bottom: 0; background: var(--bg); padding-bottom: 8px; }
+}
