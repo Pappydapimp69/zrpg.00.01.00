@@ -100,4 +100,3 @@ function move(dir) {
     ui.print("<span class='muted'>Your torchlight pushes back the dark.</span>");
   }
 }
-
