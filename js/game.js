@@ -41,7 +41,6 @@ function checkTutorialUnlock() {
   const t = gameState.hero.flags.tutorial;
   if (!t.unlocked && t.didLook && t.didTake && t.didTalk) {
     t.unlocked = true;
-    // Reveal exit from the cell
     const cell = gameState.world.rooms["cell"];
     cell.exits = cell.exits || {};
     cell.exits.n = "hall";
