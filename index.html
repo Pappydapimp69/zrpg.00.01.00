@@ -23,16 +23,18 @@
       <section id="transcript" aria-live="polite"></section>
 
       <section id="controls">
+        <!-- Movement Buttons -->
         <div id="quickBtns" aria-label="Movement">
           <button data-cmd="n">N</button>
           <div class="row">
             <button data-cmd="w">W</button>
-            <button data-cmd="look">Look</button>
+            <div class="spacer"></div>
             <button data-cmd="e">E</button>
           </div>
           <button data-cmd="s">S</button>
         </div>
 
+        <!-- Action Buttons -->
         <div id="staticBtns" aria-label="Common actions">
           <button data-cmd="look">Look</button>
           <button data-cmd="take">Take</button>
@@ -40,6 +42,7 @@
           <button data-cmd="use">Use</button>
         </div>
 
+        <!-- Command Line -->
         <div id="cli">
           <input id="commandInput" type="text" placeholder="Type a command (e.g., 'take torch', 'talk guard')" autocomplete="off" />
           <button id="submitBtn">Go</button>
