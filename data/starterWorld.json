@@ -1,0 +1,43 @@
+{
+  "rooms": {
+    "cell": {
+      "desc": "You are in a small training cell. A torch rests on the wall. The guard leans against the door, watching you.",
+      "items": ["torch"],
+      "npcs": ["guard"],
+      "exits": {}
+    },
+    "hall": {
+      "desc": "A narrow hallway lined with moss. It stretches east, while the cell lies to the south.",
+      "items": [],
+      "npcs": [],
+      "exits": { "s": "cell", "e": "yard" }
+    },
+    "yard": {
+      "desc": "An open yard with tall grass and a pale sky. Paths lead back west.",
+      "items": [],
+      "npcs": [],
+      "exits": { "w": "hall" }
+    }
+  },
+  "items": {
+    "torch": {
+      "id": "torch",
+      "name": "Torch",
+      "type": "tool",
+      "desc": "A simple wooden torch. Useful for light."
+    }
+  },
+  "npcs": {
+    "guard": {
+      "id": "guard",
+      "name": "Training Guard",
+      "persona": "Gruff but patient instructor.",
+      "dialogue": [
+        "The guard says: \"Try the Look button. It will help you see what's here.\"",
+        "The guard says: \"Now Take the torch. Use the Take button, then type 'torch'.\"",
+        "The guard says: \"Finally, Talk to me with the Talk button — you're nearly there.\"",
+        "The guard says: \"You're ready. I'll open the door to the north. Explore, improvise, even change the rules if you wish.\""
+      ]
+    }
+  }
+}
