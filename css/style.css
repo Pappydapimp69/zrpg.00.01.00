@@ -69,24 +69,33 @@ html, body {
   gap: 8px;
 }
 
-#quickBtns, #staticBtns {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 6px;
-}
-
+/* Movement Buttons */
 #quickBtns {
+  display: grid;
   grid-template-columns: 3fr 6fr 3fr;
   justify-items: center;
 }
 #quickBtns .row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 6px;
   width: 100%;
 }
+#quickBtns .spacer {
+  visibility: hidden; /* keeps spacing */
+}
 
-#quickBtns button, #staticBtns button, #submitBtn {
+/* Action Buttons */
+#staticBtns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+/* Shared Button Styles */
+#quickBtns button,
+#staticBtns button,
+#submitBtn {
   padding: 10px;
   background: #1a1e27;
   border: 1px solid var(--line);
@@ -94,7 +103,9 @@ html, body {
   border-radius: 8px;
   cursor: pointer;
 }
-#quickBtns button:hover, #staticBtns button:hover, #submitBtn:hover {
+#quickBtns button:hover,
+#staticBtns button:hover,
+#submitBtn:hover {
   border-color: var(--accent);
 }
 
